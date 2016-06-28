@@ -24,7 +24,7 @@
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Email"
+            android:hint="@string/label_login_email"
             android:layout_marginTop="16dp">
 
             <EditText
@@ -36,7 +36,7 @@
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Password"
+            android:hint="@string/label_login_password"
             android:layout_marginTop="16dp">
 
             <EditText
@@ -53,6 +53,7 @@
             android:layout_marginTop="16dp">
 
             <LinearLayout
+                android:id="@+id/login_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@color/gris"
@@ -78,14 +79,14 @@
                     android:textSize="14sp"
                     android:paddingRight="30dp"
                     android:gravity="center"
-                    android:text="Login"
+                    android:text="@string/button_login_login"
                     android:textColor="@color/white"/>
             </LinearLayout>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Forgot your password?"
+                android:text="@string/message_login_forgot"
                 android:layout_gravity="center_vertical"
                 android:padding="16dp"/>
         </LinearLayout>
@@ -118,7 +119,7 @@
                 android:textSize="14sp"
                 android:paddingRight="30dp"
                 android:gravity="center"
-                android:text="Sign in with Twitter"
+                android:text="@string/button_login_facebook"
                 android:textColor="@color/white"/>
         </LinearLayout>
 
@@ -150,7 +151,7 @@
                 android:textSize="14sp"
                 android:paddingRight="30dp"
                 android:gravity="center"
-                android:text="Sign in with Twitter"
+                android:text="@string/button_login_twitter"
                 android:textColor="@color/white"/>
         </LinearLayout>
 
@@ -182,7 +183,7 @@
                 android:textSize="14sp"
                 android:paddingRight="30dp"
                 android:gravity="center"
-                android:text="Sign in with Google"
+                android:text="@string/button_login_google"
                 android:textColor="@color/white"/>
         </LinearLayout>
 
