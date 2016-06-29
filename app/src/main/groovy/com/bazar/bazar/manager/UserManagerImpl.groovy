@@ -17,4 +17,11 @@ class UserManagerImpl implements UserManager {
         }
     }
 
+    @Override
+    void show(String id, Closure onSuccess, Closure onError) {
+        RetrofitTemplate.instance.withRetrofit(operations as Class, onSuccess, onError){ UserRestOperations restOperations ->
+            restOperations.getUser(id)
+        }
+    }
+
 }
