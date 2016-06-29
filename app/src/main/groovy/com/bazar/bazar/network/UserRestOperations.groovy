@@ -8,6 +8,9 @@ import retrofit2.http.*
 @CompileStatic
 interface UserRestOperations {
 
-    @GET("users/all")
+    @GET("api/users")
     Call<List<User>> getUsers(@QueryMap Map<String, String> options)
+
+    @GET("api/users/{id}")
+    Call<User> getUser(@Path("id") String id)
 }
