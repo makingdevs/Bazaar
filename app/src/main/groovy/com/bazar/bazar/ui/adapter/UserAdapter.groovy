@@ -1,6 +1,7 @@
 package com.bazar.bazar.ui.adapter
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.Color
 import android.support.v7.widget.RecyclerView
 import android.util.Log
@@ -11,6 +12,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.bazar.bazar.R
 import com.bazar.bazar.model.User
+import com.bazar.bazar.ui.activity.ShowUserActivity
 import com.bumptech.glide.Glide
 import jp.wasabeef.glide.transformations.CropCircleTransformation
 import me.gujun.android.taggroup.TagGroup
@@ -50,17 +52,21 @@ class UserAdapter extends RecyclerView.Adapter<UserViewHolder>{
         TextView mUserName
         TextView mCountry
         TextView mAboutMe
-        TagGroup mTagGroup
+        TagGroup mSkills
 
         void bindCheckin(User user) {
             mUser = user
-            String url = user.profile.picture.contains("person_placeholder") ? "http://bazaar-dev.eu-central-1.elasticbeanstalk.com/${user.profile.picture}": user.profile.picture
+            String url = user.picture.contains("person_placeholder") ? "http://bazaar-dev.eu-central-1.elasticbeanstalk.com/${user.picture}": user.picture
             Glide.with(mContext).load(url)
                     .bitmapTransform(new CropCircleTransformation(mContext))
                     .into(mImageView)
-            mUserName.text = user.profile.name
-            mCountry.text = user.profile.hometown
-            mTagGroup.setTags(user.skills)
+            mUserName.text = user.name
+            mCountry.text = user.hometown
+            mSkills.setTags(user.skills)
+            itemView.onClickListener = {
+                Intent intent = ShowUserActivity.newIntentWithContext(mContext, user._id)
+                mContext.startActivity(intent)
+            }
         }
 
         UserViewHolder(View itemView) {
@@ -69,7 +75,7 @@ class UserAdapter extends RecyclerView.Adapter<UserViewHolder>{
             mUserName = (TextView) itemView.findViewById(R.id.user_name)
             mCountry = (TextView) itemView.findViewById(R.id.country)
             mAboutMe = (TextView) itemView.findViewById(R.id.about_me)
-            mTagGroup = (TagGroup) itemView.findViewById(R.id.skill)
+            mSkills = (TagGroup) itemView.findViewById(R.id.skill)
         }
     }
 
