@@ -5,8 +5,10 @@ import groovy.transform.CompileStatic
 @CompileStatic
 class User {
     String _id
-    String email
-    Profile profile
-    String aboutMe
+    String name
+    String hometown
+    String picture
+    String location
     List<String> skills
+    List<String> interests
 }
